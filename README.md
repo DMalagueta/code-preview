@@ -1,6 +1,12 @@
 # CodePreview Component
 
+URL: https://dmalagueta.github.io/code-preview/
+
+![image](https://github.com/DMalagueta/code-preview/assets/84686081/a6b4c4e5-4ca6-46da-83cf-cd5e77fd14c8)
+
 The `CodePreview` component is a versatile React component designed for displaying and sharing code snippets. It provides a clean and organized way to showcase code with optional line numbers, a customizable filename, and the ability to disable the "Copy Code" button.
+
+Note: not responsive (yet)
 
 ## Installation
 
