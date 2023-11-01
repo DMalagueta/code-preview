@@ -1,27 +1,42 @@
-# React + TypeScript + Vite
+# CodePreview Component
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The `CodePreview` component is a versatile React component designed for displaying and sharing code snippets. It provides a clean and organized way to showcase code with optional line numbers, a customizable filename, and the ability to disable the "Copy Code" button.
 
-Currently, two official plugins are available:
+## Installation
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+You can install the `CodePreview` component via npm or yarn:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
+```bash
+npm install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# Usage
+To use the CodePreview component in your React application, import it and include it in your code. You can provide the following props:
+
+- code: The code snippet you want to display.
+- filename (optional): The filename associated with the code snippet.
+- showCopyButton (optional): A boolean that determines whether to show the "Copy Code" button.:
+
+Here's an example of how to use the CodePreview:
+
+```js
+const sampleCode = `function greet() {
+  console.log('Hello, World!');
+}`;
+
+
+<CodePreview
+ code={sampleCode}
+ filename="example.js"
+ showCopyButton={false}
+/>
+
+```
+
+# Running the Project
+To run the project using Vite, use the following command:
+```
+npm run dev
+# or
+yarn dev
+```
