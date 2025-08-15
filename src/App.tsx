@@ -88,22 +88,18 @@ def fetch_users(url: str) -> list[User]:
           <h2 className="section__title">Features</h2>
           <div className="features-grid">
             <div className="feature-card">
-              <div className="feature-card__icon">&#x2728;</div>
               <h3>Syntax Highlighting</h3>
               <p>Support for 200+ languages with beautiful Catppuccin-inspired theme.</p>
             </div>
             <div className="feature-card">
-              <div className="feature-card__icon">&#x1F4CB;</div>
               <h3>One-Click Copy</h3>
               <p>Modern Clipboard API with visual feedback — no more alert() popups.</p>
             </div>
             <div className="feature-card">
-              <div className="feature-card__icon">&#x1F4F1;</div>
               <h3>Responsive</h3>
               <p>Looks great on every screen size, from mobile to ultrawide.</p>
             </div>
             <div className="feature-card">
-              <div className="feature-card__icon">&#x267F;</div>
               <h3>Accessible</h3>
               <p>ARIA labels, keyboard navigation, and focus indicators built in.</p>
             </div>
