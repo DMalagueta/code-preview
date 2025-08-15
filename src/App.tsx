@@ -1,128 +1,168 @@
 import "./App.css";
-import Codepreview from "./components/codepreview";
+import Codepreview from "./components/Codepreview";
 
 function App() {
-  const sampleCode = `
-  function greet(name) {
-    console.log('Hello, ' + name);
-  }
-  
-  greet('World');
-`;
+  const basicExample = `function greet(name: string) {
+  console.log(\`Hello, \${name}!\`);
+}
 
-  const usageCode = `
-  const sampleCode = "
-      function greet(name) {
-        console.log('Hello, ' + name);
-      }
-      
-      greet('World');
-    ";
-  
-  <Codepreview code={sampleCode} filename="teste.js" showCopyButton="false" />
-  `;
+greet("World");`;
 
-  const styleCode = `
-    --font-size: 14px;
-    --line-height: 1.5;
-    --font-family: "Courier New", Courier, monospace;
-    --main-background-color: #dadada;
-    --main-text-color: #333;
-    --numbers-background-color: #f2f2f2;
-    --numbers-border-color: #ccc;
-    --numbers-text-color: #333;
-    --button-background-color: #853232;
-    --button-hover-background-color: #853232c4;
-    --button-hover-text-color: #fff;
-    --button-text-color: #fff;
-  `;
+  const reactExample = `import Codepreview from "./components/Codepreview";
+
+function App() {
+  const code = \`const x = 42;\`;
 
   return (
-    <div className="preview-component">
-      <div>
-        <h1>Code-preview</h1>
-        <div className="preview-component__section">
-          <Codepreview code={sampleCode} />
-        </div>
-        <hr />
-        <div className="preview-component__section">
-          <h2>What is it?</h2>
-          <div className="preview-component__desc">
-            The CodePreview component is a versatile React component designed to
-            elegantly display and share code snippets. This component offers the
-            following features:
-            <ul>
-              <li>
-                Code Display: It presents code in a clean and organized format,
-                with line numbers for easy reference.
-              </li>
-              <li>
-                Code Copy: Users can easily copy code to their clipboard with
-                the "Copy Code" button.
-              </li>
-              <li>
-                Line Numbers: Line numbers are displayed alongside the code,
-                allowing users to pinpoint specific lines.
-              </li>
-              <li>
-                Customizable Styling: The component's appearance can be
-                customized to match the design of your application.
-              </li>
-            </ul>
-          </div>
-        </div>
+    <Codepreview
+      code={code}
+      filename="example.ts"
+      language="typescript"
+      showCopyButton={true}
+      highlightLines={[3, 4]}
+    />
+  );
+}`;
 
-        <hr />
+  const propsExample = `interface CodePreviewProps {
+  code: string;              // The code to display
+  filename?: string;         // Filename shown in header
+  language?: string;         // Language for syntax highlighting
+  showCopyButton?: boolean;  // Toggle copy button (default: true)
+  highlightLines?: number[]; // Lines to highlight
+  showLineNumbers?: boolean; // Toggle line numbers (default: true)
+}`;
 
-        <div className="preview-component__section">
-          <h2>Usage</h2>
-          <div className="preview-component__desc">
-          In this usage example:
-          <ul>
-            <li>
-              The code prop contains the code snippet you want to display.
-            </li>
-            <li>
-              The filename prop is set to "example.js," indicating the filename
-              associated with the code snippet.
-            </li>
-            <li>
-              The showCopyButton prop is set to false, which disables the "Copy
-              Code" button, preventing users from copying the code.
-            </li>
-          </ul>
+  const pythonExample = `import requests
+from dataclasses import dataclass
+
+@dataclass
+class User:
+    name: str
+    email: str
+    active: bool = True
+
+    def greet(self) -> str:
+        return f"Hello, {self.name}!"
+
+def fetch_users(url: str) -> list[User]:
+    response = requests.get(url)
+    response.raise_for_status()
+    return [User(**data) for data in response.json()]`;
+
+  const cssExample = `/* Catppuccin-inspired theme */
+.code-preview {
+  --header-bg: #181825;
+  --body-bg: #1e1e2e;
+  --text: #cdd6f4;
+  --accent: #89b4fa;
+  --success: #a6e3a1;
+  --error: #f38ba8;
+}`;
+
+  return (
+    <div className="page">
+      <header className="hero">
+        <div className="hero__content">
+          <div className="hero__badge">React Component</div>
+          <h1 className="hero__title">
+            {"<"}CodePreview {"/>"}
+          </h1>
+          <p className="hero__subtitle">
+            A modern React component for displaying code snippets with syntax
+            highlighting, line numbers, and one-click copy.
+          </p>
+          <div className="hero__actions">
+            <a href="https://github.com/DMalagueta/code-preview" className="btn btn--primary" target="_blank" rel="noopener noreferrer">
+              GitHub
+            </a>
+            <a href="#features" className="btn btn--secondary">
+              Explore
+            </a>
           </div>
-         
-          <Codepreview
-            code={usageCode}
-            filename="PageWhereYouWantToUseTheComponent.tsx"
-          />
-          <h4>Output</h4>
-          <Codepreview
-            code={sampleCode}
-            filename="teste.js"
-            showCopyButton={false}
-          />
         </div>
-        <hr />
-        <div className="preview-component__section">
-          <h2>Styling</h2>
-          <div className="preview-component__desc">
-            If you don't like the default style of the component you can customise everything as you like! You just have simply to modify this CSS variables.
+      </header>
+
+      <main className="content">
+        <section className="section" id="features">
+          <h2 className="section__title">Features</h2>
+          <div className="features-grid">
+            <div className="feature-card">
+              <div className="feature-card__icon">&#x2728;</div>
+              <h3>Syntax Highlighting</h3>
+              <p>Support for 200+ languages with beautiful Catppuccin-inspired theme.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-card__icon">&#x1F4CB;</div>
+              <h3>One-Click Copy</h3>
+              <p>Modern Clipboard API with visual feedback — no more alert() popups.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-card__icon">&#x1F4F1;</div>
+              <h3>Responsive</h3>
+              <p>Looks great on every screen size, from mobile to ultrawide.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-card__icon">&#x267F;</div>
+              <h3>Accessible</h3>
+              <p>ARIA labels, keyboard navigation, and focus indicators built in.</p>
+            </div>
           </div>
-         
-          <Codepreview
-            code={styleCode}
-            filename="codepreview.css"
-            showCopyButton={false}
-          />
-        </div>
-        <hr />
-        <div className="preview-component__section">
-          <h2>Have fun using it :)</h2>
-        </div>
-        
-      </div>
+        </section>
+
+        <section className="section">
+          <h2 className="section__title">Quick Start</h2>
+          <Codepreview code={reactExample} filename="App.tsx" language="tsx" highlightLines={[8, 9, 10, 11, 12]} />
+        </section>
+
+        <section className="section">
+          <h2 className="section__title">Props API</h2>
+          <Codepreview code={propsExample} filename="CodePreviewProps.ts" language="typescript" showCopyButton={false} />
+        </section>
+
+        <section className="section">
+          <h2 className="section__title">Examples</h2>
+
+          <div className="example">
+            <h3 className="example__label">JavaScript</h3>
+            <Codepreview code={basicExample} filename="greet.ts" language="typescript" />
+          </div>
+
+          <div className="example">
+            <h3 className="example__label">Python</h3>
+            <Codepreview code={pythonExample} filename="users.py" language="python" highlightLines={[4, 5, 6, 7]} />
+          </div>
+
+          <div className="example">
+            <h3 className="example__label">CSS</h3>
+            <Codepreview code={cssExample} filename="theme.css" language="css" showLineNumbers={false} />
+          </div>
+
+          <div className="example">
+            <h3 className="example__label">No Copy Button</h3>
+            <Codepreview code={basicExample} language="typescript" showCopyButton={false} />
+          </div>
+        </section>
+
+        <section className="section">
+          <h2 className="section__title">Theming</h2>
+          <p className="section__desc">
+            The component uses a dark theme out of the box. You can customize
+            colors by overriding the CSS custom properties or passing inline
+            styles through the component props.
+          </p>
+          <Codepreview code={cssExample} filename="codepreview.css" language="css" />
+        </section>
+      </main>
+
+      <footer className="footer">
+        <p>
+          Built by{" "}
+          <a href="https://github.com/DMalagueta" target="_blank" rel="noopener noreferrer">
+            Diogo Malagueta
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }
