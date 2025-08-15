@@ -1,25 +1,49 @@
 {
-  "name": "code-preview",
-  "private": false,
-  "version": "0.0.0",
+  "name": "@dmalagueta/code-preview",
+  "version": "1.0.0",
   "type": "module",
+  "description": "A modern React component for displaying code snippets with syntax highlighting, line numbers, and one-click copy.",
   "homepage": "https://dmalagueta.github.io/code-preview",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DMalagueta/code-preview.git"
+  },
+  "license": "MIT",
+  "author": "Diogo Malagueta",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js",
+      "types": "./dist/index.d.ts"
+    },
+    "./styles.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
+    "build:lib": "vite build --mode lib",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d dist",
+    "prepublishOnly": "npm run build:lib"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.0",
+    "react-dom": ">=17.0.0"
   },
   "dependencies": {
-    "@types/react-syntax-highlighter": "^15.5.13",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "react-syntax-highlighter": "^16.1.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
+    "@types/react-syntax-highlighter": "^15.5.13",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
     "@vitejs/plugin-react": "^4.0.3",
@@ -27,7 +51,16 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "gh-pages": "^6.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
-  }
+  },
+  "keywords": [
+    "react",
+    "code-preview",
+    "syntax-highlighting",
+    "code-snippet",
+    "component"
+  ]
 }
